@@ -11,7 +11,7 @@ $AdminCredentials = New-Object System.Management.Automation.PSCredential ("Admin
 $ADCredentials = New-Object System.Management.Automation.PSCredential ("$DomainNetbiosName\Administrator", $AdminPassword)
 
 #host
-New-VMSwitch –SwitchName “NATSwitch” –SwitchType Internal
+New-VMSwitch –SwitchName "NATSwitch" –SwitchType Internal
 New-NetIPAddress –IPAddress $IPv4Prefix'.1' -PrefixLength 24 -InterfaceAlias "vEthernet (NATSwitch)"
 New-NetNat –Name VMNetwork –InternalIPInterfaceAddressPrefix $IPv4Prefix'.0/24'
 
